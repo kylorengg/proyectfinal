@@ -324,3 +324,9 @@ body {
     position: relative;
     z-index: 1;
 }
+@media (max-width: 768px) {
+    nav {
+      flex-direction: column;
+    }
+  }
+  
