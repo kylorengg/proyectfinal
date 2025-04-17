@@ -52,7 +52,7 @@ body {
 }
 .header .navbar .labe_hamburguesa .list_icon:hover {
   transform: scale(1.1);
-  color: #e6e6e6;
+  color: rgb(229.5, 229.5, 229.5);
 }
 .header .navbar .menu_hamburguesa {
   display: none;
@@ -115,7 +115,7 @@ body {
     right: -100%;
     width: 70%;
     height: 100vh;
-    background-color: #e60000;
+    background-color: rgb(229.5, 0, 0);
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -214,8 +214,7 @@ body {
 .historia-img {
   width: 100%;
   height: 200px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .historia-content {
@@ -293,4 +292,6 @@ body {
 .portada-historia > * {
   position: relative;
   z-index: 1;
-}/*# sourceMappingURL=styles.css.map */
+}
+
+/*# sourceMappingURL=styles.css.map */
