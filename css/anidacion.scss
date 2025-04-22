@@ -1,26 +1,3 @@
-// Variables
-:root {
-    --primary-red: #ff0000;
-    --dark-red: #da291c;
-    --dark-gray: #1a1a1a;
-    --mid-gray: #2a2a2a;
-    --white: #ffffff;
-    --shadow: rgba(0, 0, 0, 0.3);
-    --highlight: #ffd700;
-  }
-  
-// Estilos base
-body {
-    background-color: $color-fondo;
-    color: $color-texto;
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
 .header {
     background-color: $color-primario;
     padding: 1rem;

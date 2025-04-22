@@ -3,7 +3,7 @@
 .portada {
     flex: 1;
     width: 100%;
-    min-height: calc(100vh - 140px); // Ajusta este valor según el alto de tu header + footer
+    min-height: calc(100vh - 140px);
     background-image: url('../media/portadainicio.jpg');
     background-size: cover;
     background-position: center;
@@ -38,7 +38,7 @@
 }
 
 .footer {
-    background-color: rgba(0, 0, 0, 0.7); // Negro transparente
+    background-color: rgba(0, 0, 0, 0.7);
     color: $color-texto;
     text-align: center;
     padding: 1.5rem;
@@ -127,17 +127,16 @@
 .portada-historia {
     flex: 1;
     width: 100%;
-    min-height: calc(100vh - 140px); /* Ajusta este valor según el alto de tu header + footer */
+    min-height: calc(100vh - 140px); 
     background-image: url('../media/historia.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: rgb(255, 255, 255); /* Cambié a blanco para mejor contraste con el fondo oscurecido */
+    color: rgb(255, 255, 255); 
     text-align: center;
     position: relative;
-    /* Asegurar que el pseudo-elemento se posicione correctamente */
     overflow: hidden;
 }
 
@@ -148,7 +147,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); /* Ajusta la opacidad (0.4) para más/menos oscuridad */
+    background-color: rgba(0, 0, 0, 0.4); 
     z-index: 0;
 }
 

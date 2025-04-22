@@ -1,18 +1,6 @@
-@charset "UTF-8";
-
-:root {
-  --primary-red: #ff0000;
-  --dark-red: #da291c;
-  --dark-gray: #1a1a1a;
-  --mid-gray: #2a2a2a;
-  --white: #ffffff;
-  --shadow: rgba(0, 0, 0, 0.3);
-  --highlight: #ffd700;
-}
-
 body {
-  background-color: #000000;
-  color: var(--white);
+  background-color: #ff0000;
+  color: #ffffff;            
   margin: 0;
   padding: 0;
   font-family: "Arial", sans-serif;
@@ -21,6 +9,7 @@ body {
   flex-direction: column;
 }
 
+/* Header Styles */
 .header {
   background-color: var(--primary-red);
   padding: 1rem;
@@ -167,7 +156,6 @@ body {
   }
 }
 
-/* Hero Sections */
 .portada,
 .stadium-hero,
 .portada-historia,
@@ -264,7 +252,6 @@ body {
   box-shadow: 0 5px 15px rgba(255, 69, 0, 0.4);
 }
 
-/* Stadium Info Section */
 .stadium-info {
   padding: 50px 20px;
   background-color: #000;
@@ -311,7 +298,6 @@ body {
   margin: 0;
 }
 
-/* Stadium History Section */
 .stadium-history {
   padding: 50px 20px;
   background-color: #111;
@@ -353,7 +339,6 @@ body {
   object-fit: cover;
 }
 
-/* Stadium Gallery Section */
 .stadium-gallery {
   padding: 50px 20px;
   background-color: #000;
@@ -389,62 +374,179 @@ body {
   transform: scale(1.05);
 }
 
-/* Existing Sections */
-.historia-section,
-.fixture-section {
-  padding: 50px 20px;
+.historia-section {
+  padding: 60px 20px;
   background-color: #000;
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+.historia-section .historia-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--primary-red);
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px var(--shadow);
+  letter-spacing: 1.5px;
+}
+
+.historia-parrafo {
+  max-width: 1000px;
+  margin: 0 auto 30px;
+  padding: 0 20px;
+}
+
+.historia-parrafo p {
+  font-size: 1.2rem;
+  line-height: 1.9;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 20px;
+  text-align: justify;
+  transition: color 0.3s ease;
+}
+
+.historia-parrafo p:hover {
   color: var(--white);
 }
 
-.historia-grid,
+.historia-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.historia-card {
+  background: linear-gradient(135deg, var(--dark-gray) 0%, #222 100%);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(255, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.historia-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(255, 0, 0, 0.3);
+}
+
+.historia-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.historia-card:hover .historia-img {
+  transform: scale(1.05);
+}
+
+.historia-content {
+  padding: 25px;
+  text-align: center;
+}
+
+.historia-content .historia-title {
+  font-size: 1.6rem;
+  color: var(--primary-red);
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.historia-content p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+
 .info-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 40px auto;
+  padding: 0 20px;
 }
 
-.historia-card {
-  background: var(--dark-gray);
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(255, 0, 0, 0.2);
+.info-card {
+  background: linear-gradient(135deg, var(--dark-gray) 0%, #222 100%);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 6px 20px rgba(255, 0, 0, 0.2);
+  border-left: 5px solid var(--primary-red);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(255, 0, 0, 0.3);
+}
+
+.info-card .info-title {
+  font-size: 1.8rem;
+  color: var(--primary-red);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.info-card .info-item {
+  margin-bottom: 25px;
+}
+
+.info-card .info-item h5 {
+  font-size: 1.3rem;
+  color: var(--white);
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.info-card .info-item p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+.info-card .info-item img {
+  max-width: 80px;
+  height: auto;
+  margin-top: 10px;
+  border-radius: 8px;
   transition: transform 0.3s ease;
 }
 
-.historia-card:hover {
-  transform: translateY(-10px);
+.info-card .info-item img:hover {
+  transform: scale(1.1);
 }
 
-.historia-img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
+.info-card p strong {
+  color: var(--white);
+  font-weight: 600;
 }
 
-.historia-content {
-  padding: 20px;
-}
-
-.historia-title,
-.info-title {
+.info-card a {
   color: var(--primary-red);
-  margin-bottom: 15px;
-  font-size: 1.5rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
-.historia-text {
-  line-height: 1.8;
-  margin-bottom: 20px;
+.info-card a:hover {
+  color: #ff4500;
+  text-decoration: underline;
 }
 
-.historia-text p {
-  margin-bottom: 15px;
-}
 
 .player-card {
+  position: relative;
   background: linear-gradient(135deg, var(--dark-gray) 0%, var(--mid-gray) 100%);
   border-radius: 10px;
   padding: 15px;
@@ -621,9 +723,8 @@ body {
   color: var(--dark-gray);
 }
 
-/* Footer */
 .footer {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(255, 0, 0, 0.7);
   color: var(--white);
   text-align: center;
   padding: 1.5rem;
@@ -635,14 +736,87 @@ body {
   font-size: 1rem;
 }
 
-/* Responsive Design */
 @media (max-width: 992px) {
+  .historia-section .historia-title {
+    font-size: 2.4rem;
+  }
+
+  .historia-parrafo p {
+    font-size: 1.1rem;
+  }
+
+  .historia-card .historia-img {
+    height: 200px;
+  }
+
+  .historia-content .historia-title {
+    font-size: 1.5rem;
+  }
+
+  .info-card .info-title {
+    font-size: 1.6rem;
+  }
+
   .player-card img {
     max-height: 180px;
   }
 }
 
 @media (max-width: 768px) {
+  .historia-section {
+    padding: 40px 15px;
+  }
+
+  .historia-section .historia-title {
+    font-size: 2rem;
+  }
+
+  .historia-parrafo p {
+    font-size: 1rem;
+    text-align: left;
+  }
+
+  .historia-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .historia-card .historia-img {
+    height: 180px;
+  }
+
+  .historia-content {
+    padding: 20px;
+  }
+
+  .historia-content .historia-title {
+    font-size: 1.4rem;
+  }
+
+  .historia-content p {
+    font-size: 1rem;
+  }
+
+  .info-card {
+    padding: 20px;
+  }
+
+  .info-card .info-title {
+    font-size: 1.5rem;
+  }
+
+  .info-card .info-item h5 {
+    font-size: 1.2rem;
+  }
+
+  .info-card .info-item p {
+    font-size: 1rem;
+  }
+
+  .info-card .info-item img {
+    max-width: 60px;
+  }
+
   .portada .portada-content h1,
   .stadium-hero .portada-content h1 {
     font-size: 2.5rem;
@@ -689,6 +863,55 @@ body {
 }
 
 @media (max-width: 576px) {
+  .historia-section .historia-title {
+    font-size: 1.8rem;
+  }
+
+  .historia-parrafo p {
+    font-size: 0.95rem;
+  }
+
+  .historia-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .historia-card .historia-img {
+    height: 160px;
+  }
+
+  .historia-content {
+    padding: 15px;
+  }
+
+  .historia-content .historia-title {
+    font-size: 1.3rem;
+  }
+
+  .historia-content p {
+    font-size: 0.95rem;
+  }
+
+  .info-card {
+    padding: 15px;
+  }
+
+  .info-card .info-title {
+    font-size: 1.4rem;
+  }
+
+  .info-card .info-item h5 {
+    font-size: 1.1rem;
+  }
+
+  .info-card .info-item p {
+    font-size: 0.9rem;
+  }
+
+  .info-card .info-item img {
+    max-width: 50px;
+  }
+
   .portada .portada-content h1,
   .stadium-hero .portada-content h1 {
     font-size: 2rem;
