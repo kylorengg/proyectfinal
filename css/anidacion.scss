@@ -1,10 +1,14 @@
 // Variables
-$color-primario: #ff0000; // Rojo
-$color-texto: #ffffff; // Blanco
-$color-hover: #ff4500; // Naranja-rojizo para efecto fuego
-$transicion: all 0.3s ease;
-$color-fondo: #000000; // Negro
-
+:root {
+    --primary-red: #ff0000;
+    --dark-red: #da291c;
+    --dark-gray: #1a1a1a;
+    --mid-gray: #2a2a2a;
+    --white: #ffffff;
+    --shadow: rgba(0, 0, 0, 0.3);
+    --highlight: #ffd700;
+  }
+  
 // Estilos base
 body {
     background-color: $color-fondo;
@@ -167,3 +171,4 @@ body {
         text-shadow: 0 0 10px #fff, 0 0 20px #ff8c00, 0 0 30px #ff4500, 0 0 40px #ff0000;
     }
 }
+

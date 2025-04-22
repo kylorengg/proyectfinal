@@ -1,7 +1,18 @@
 @charset "UTF-8";
+
+:root {
+  --primary-red: #ff0000;
+  --dark-red: #da291c;
+  --dark-gray: #1a1a1a;
+  --mid-gray: #2a2a2a;
+  --white: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.3);
+  --highlight: #ffd700;
+}
+
 body {
   background-color: #000000;
-  color: #ffffff;
+  color: var(--white);
   margin: 0;
   padding: 0;
   font-family: "Arial", sans-serif;
@@ -11,10 +22,11 @@ body {
 }
 
 .header {
-  background-color: #ff0000;
+  background-color: var(--primary-red);
   padding: 1rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 5px var(--shadow);
 }
+
 .header .navbar {
   display: flex;
   justify-content: space-between;
@@ -22,14 +34,16 @@ body {
   max-width: 1200px;
   margin: 0 auto;
 }
+
 .header .navbar .logo {
-  color: #ffffff;
+  color: var(--white);
   font-size: 1.8rem;
   font-weight: bold;
   text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
   position: relative;
   padding-left: 50px;
 }
+
 .header .navbar .logo::before {
   content: "";
   position: absolute;
@@ -42,28 +56,36 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
 }
+
 .header .navbar .labe_hamburguesa {
   cursor: pointer;
   display: none;
 }
+
 .header .navbar .labe_hamburguesa .list_icon {
-  color: #ffffff;
+  color: var(--white);
   transition: all 0.3s ease;
 }
+
 .header .navbar .labe_hamburguesa .list_icon:hover {
   transform: scale(1.1);
   color: rgb(229.5, 229.5, 229.5);
 }
+
 .header .navbar .menu_hamburguesa {
   display: none;
 }
+
 .header .navbar .ul_links {
   display: flex;
   gap: 1.5rem;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
+
 .header .navbar .ul_links .li_links .link {
-  color: #ffffff;
+  color: var(--white);
   text-decoration: none;
   font-size: 1.1rem;
   font-weight: 500;
@@ -72,11 +94,13 @@ body {
   transition: all 0.3s ease;
   position: relative;
 }
+
 .header .navbar .ul_links .li_links .link:hover {
-  color: #fff;
-  text-shadow: 0 0 10px #ff8c00, 0 0 20px #ff4500, 0 0 30px #ff0000;
+  color: var(--white);
+  text-shadow: 0 0 10px #ff8c00, 0 0 20px #ff4500, 0 0 30px var(--primary-red);
   transform: translateY(-2px);
 }
+
 .header .navbar .ul_links .li_links .link:hover::after {
   content: "";
   position: absolute;
@@ -84,7 +108,7 @@ body {
   left: 0;
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #ff8c00, #ff4500, #ff0000, transparent);
+  background: linear-gradient(90deg, transparent, #ff8c00, #ff4500, var(--primary-red), transparent);
   animation: fireLine 0.5s linear;
 }
 
@@ -101,6 +125,20 @@ body {
     opacity: 0;
   }
 }
+
+.logo:hover {
+  animation: logoFire 1s infinite alternate;
+}
+
+@keyframes logoFire {
+  from {
+    text-shadow: 0 0 5px var(--white), 0 0 10px #ff8c00, 0 0 15px #ff4500;
+  }
+  to {
+    text-shadow: 0 0 10px var(--white), 0 0 20px #ff8c00, 0 0 30px #ff4500, 0 0 40px var(--primary-red);
+  }
+}
+
 @media (max-width: 768px) {
   .header .navbar {
     position: relative;
@@ -128,79 +166,248 @@ body {
     right: 0;
   }
 }
-.logo:hover {
-  animation: logoFire 1s infinite alternate;
-}
 
-@keyframes logoFire {
-  from {
-    text-shadow: 0 0 5px #fff, 0 0 10px #ff8c00, 0 0 15px #ff4500;
-  }
-  to {
-    text-shadow: 0 0 10px #fff, 0 0 20px #ff8c00, 0 0 30px #ff4500, 0 0 40px #ff0000;
-  }
-}
-.portada {
+/* Hero Sections */
+.portada,
+.stadium-hero,
+.portada-historia,
+.portada-squad,
+.portada-versus {
   flex: 1;
   width: 100%;
   min-height: calc(100vh - 140px);
-  background-image: url("../media/portadainicio.jpg");
   background-size: cover;
   background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: var(--white);
   text-align: center;
   position: relative;
+  overflow: hidden;
 }
-.portada::after {
+
+.portada {
+  background-image: url("../media/portadainicio.jpg");
+}
+
+.stadium-hero {
+  background-image: url("../media/estadio.jpg");
+}
+
+.portada-historia {
+  background-image: url("../media/historia.jpg");
+}
+
+.portada-squad {
+  background-image: url("../media/equipo/squad.jpg");
+}
+
+.portada-versus {
+  background-image: url("../media/equipo/versus.jpg");
+}
+
+.portada::after,
+.stadium-hero::before,
+.portada-historia::before,
+.portada-squad::before,
+.portada-versus::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 0;
 }
-.portada .portada-content {
+
+.portada .portada-content,
+.stadium-hero .portada-content,
+.portada-historia > *,
+.portada-squad > *,
+.portada-versus > * {
   z-index: 1;
   max-width: 1000px;
-  padding: 0 60px;
+  padding: 0 20px;
 }
-.portada .portada-content h1 {
+
+.portada .portada-content h1,
+.stadium-hero .portada-content h1 {
   font-size: 3.5rem;
   margin-bottom: 20px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  text-shadow: 2px 2px 4px var(--shadow);
 }
 
-.footer {
-  background-color: rgba(0, 0, 0, 0.7);
-  color: #ffffff;
-  text-align: center;
-  padding: 1.5rem;
-  margin-top: 0;
-}
-.footer p {
-  margin: 0;
-  font-size: 1rem;
+.stadium-hero .portada-content p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px var(--shadow);
 }
 
-.historia-section {
-  padding: 40px 0;
+.explore-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: var(--primary-red);
+  color: var(--white);
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.explore-btn:hover {
+  background-color: #ff4500;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 69, 0, 0.4);
+}
+
+/* Stadium Info Section */
+.stadium-info {
+  padding: 50px 20px;
   background-color: #000;
-  color: #fff;
+  text-align: center;
 }
 
-.historia-grid {
+.stadium-info h2 {
+  font-size: 2.5rem;
+  color: var(--primary-red);
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px var(--shadow);
+}
+
+.info-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.info-card {
+  background: var(--dark-gray);
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 4px solid var(--primary-red);
+  transition: transform 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+}
+
+.info-card h3 {
+  color: var(--primary-red);
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.info-card p {
+  font-size: 1.1rem;
+  color: var(--white);
+  margin: 0;
+}
+
+/* Stadium History Section */
+.stadium-history {
+  padding: 50px 20px;
+  background-color: #111;
+}
+
+.history-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.history-text {
+  flex: 1;
+}
+
+.history-text h2 {
+  font-size: 2.5rem;
+  color: var(--primary-red);
+  margin-bottom: 20px;
+}
+
+.history-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--white);
+}
+
+.history-image {
+  flex: 1;
+}
+
+.history-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px var(--shadow);
+  object-fit: cover;
+}
+
+/* Stadium Gallery Section */
+.stadium-gallery {
+  padding: 50px 20px;
+  background-color: #000;
+  text-align: center;
+}
+
+.stadium-gallery h2 {
+  font-size: 2.5rem;
+  color: var(--primary-red);
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px var(--shadow);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.05);
+}
+
+/* Existing Sections */
+.historia-section,
+.fixture-section {
+  padding: 50px 20px;
+  background-color: #000;
+  color: var(--white);
+}
+
+.historia-grid,
+.info-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
-  margin-bottom: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .historia-card {
-  background: #1a1a1a;
+  background: var(--dark-gray);
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 5px 15px rgba(255, 0, 0, 0.2);
@@ -221,29 +428,11 @@ body {
   padding: 20px;
 }
 
-.historia-title {
-  color: #ff0000;
+.historia-title,
+.info-title {
+  color: var(--primary-red);
   margin-bottom: 15px;
   font-size: 1.5rem;
-}
-
-.info-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  margin: 40px 0;
-}
-
-.info-card {
-  background: #1a1a1a;
-  padding: 20px;
-  border-radius: 8px;
-  border-left: 4px solid #ff0000;
-}
-
-.info-title {
-  color: #ff0000;
-  margin-bottom: 10px;
 }
 
 .historia-text {
@@ -255,43 +444,300 @@ body {
   margin-bottom: 15px;
 }
 
-@media (max-width: 768px) {
-  .historia-grid {
-    grid-template-columns: 1fr;
-  }
+.player-card {
+  background: linear-gradient(135deg, var(--dark-gray) 0%, var(--mid-gray) 100%);
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 4px 8px var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-top: 3px solid var(--dark-red);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
-.portada-historia {
-  flex: 1;
+
+.player-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(218, 41, 28, 0.3);
+}
+
+.player-card img {
   width: 100%;
-  min-height: calc(100vh - 140px); /* Ajusta este valor según el alto de tu header + footer */
-  background-image: url("../media/historia.jpg");
-  background-size: cover;
-  background-position: center;
+  max-height: 200px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.player-card .dorsal {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: var(--dark-red);
+  color: var(--white);
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgb(255, 255, 255); /* Cambié a blanco para mejor contraste con el fondo oscurecido */
-  text-align: center;
-  position: relative;
-  /* Asegurar que el pseudo-elemento se posicione correctamente */
-  overflow: hidden;
+  font-weight: bold;
+  font-size: 1.2rem;
 }
 
-.portada-historia::before {
-  content: "";
+.player-card h5 {
+  color: var(--white);
+  margin: 5px 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.player-card p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+.player-card::before {
+  content: '';
   position: absolute;
   top: 0;
-  left: 0;
+  left: -100%;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.4); /* Ajusta la opacidad (0.4) para más/menos oscuridad */
-  z-index: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: 0.5s;
 }
 
-/* Asegurarse que el contenido quede por encima del overlay */
-.portada-historia > * {
-  position: relative;
-  z-index: 1;
+.player-card:hover::before {
+  left: 100%;
+}
+
+.fixture-section .fixture-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--primary-red);
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px var(--shadow);
+}
+
+.fixture-section .fixture-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.fixture-section .fixture-card {
+  background: linear-gradient(135deg, var(--dark-gray) 0%, var(--mid-gray) 100%);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 8px var(--shadow);
+  transition: all 0.3s ease;
+  border-left: 4px solid var(--primary-red);
+}
+
+.fixture-section .fixture-card.past {
+  opacity: 0.85;
+}
+
+.fixture-section .fixture-card.upcoming {
+  border-left: 4px solid var(--highlight);
+}
+
+.fixture-section .fixture-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(218, 41, 28, 0.3);
+}
+
+.fixture-section .fixture-card .fixture-date {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 10px;
+  opacity: 0.9;
+}
+
+.fixture-section .fixture-card .fixture-teams {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.fixture-section .fixture-card .fixture-teams .team {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.fixture-section .fixture-card .fixture-teams .team:last-child {
+  justify-content: flex-start;
+}
+
+.fixture-section .fixture-card .fixture-teams .team .team-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.fixture-section .fixture-card .fixture-teams .team span {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.fixture-section .fixture-card .fixture-teams .score {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-red);
+  min-width: 60px;
+  text-align: center;
+}
+
+.fixture-section .fixture-card .fixture-status {
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 5px 15px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+}
+
+.fixture-section .fixture-card .fixture-status.upcoming-status {
+  background: var(--highlight);
+  color: var(--dark-gray);
+}
+
+/* Footer */
+.footer {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: var(--white);
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: auto;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .player-card img {
+    max-height: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .portada .portada-content h1,
+  .stadium-hero .portada-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .stadium-info h2,
+  .stadium-gallery h2,
+  .history-text h2 {
+    font-size: 2rem;
+  }
+
+  .history-content {
+    flex-direction: column;
+  }
+
+  .history-image img {
+    max-height: 300px;
+  }
+
+  .player-card img {
+    max-height: 150px;
+  }
+
+  .fixture-section .fixture-title {
+    font-size: 2rem;
+  }
+
+  .fixture-section .fixture-card {
+    padding: 15px;
+  }
+
+  .fixture-section .fixture-card .fixture-teams .team .team-logo {
+    width: 35px;
+    height: 35px;
+  }
+
+  .fixture-section .fixture-card .fixture-teams .team span {
+    font-size: 1.1rem;
+  }
+
+  .fixture-section .fixture-card .fixture-teams .score {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .portada .portada-content h1,
+  .stadium-hero .portada-content h1 {
+    font-size: 2rem;
+  }
+
+  .stadium-hero .portada-content p {
+    font-size: 1rem;
+  }
+
+  .explore-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .gallery-grid img {
+    height: 150px;
+  }
+
+  .player-card {
+    padding: 10px;
+  }
+
+  .player-card img {
+    max-height: 130px;
+  }
+
+  .player-card h5 {
+    font-size: 1rem;
+  }
+
+  .player-card .dorsal {
+    width: 28px;
+    height: 28px;
+    font-size: 0.9rem;
+  }
+
+  .fixture-section .fixture-card .fixture-teams {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .fixture-section .fixture-card .fixture-teams .team {
+    justify-content: center !important;
+  }
+
+  .fixture-section .fixture-card .fixture-teams .team .team-logo {
+    width: 30px;
+    height: 30px;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
